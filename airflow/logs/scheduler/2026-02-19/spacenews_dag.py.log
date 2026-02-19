@@ -2076,3 +2076,45 @@
 [2026-02-19T08:34:35.625+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:34:35.625+0000] {dag.py:3089} INFO - Sync 1 DAGs
 [2026-02-19T08:34:35.630+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:34:35.630+0000] {dag.py:3947} INFO - Setting next_dagrun for spacenews_end_to_end to None, run_after=None
 [2026-02-19T08:34:35.639+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spacenews_dag.py took 0.044 seconds
+[2026-02-19T08:35:05.806+0000] {processor.py:161} INFO - Started process (PID=246) to work on /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:35:05.808+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spacenews_dag.py for tasks to queue
+[2026-02-19T08:35:05.809+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:35:05.809+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:35:05.817+0000] {processor.py:840} INFO - DAG(s) 'spacenews_end_to_end' retrieved from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:35:05.831+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:35:05.831+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-02-19T08:35:05.836+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:35:05.836+0000] {dag.py:3947} INFO - Setting next_dagrun for spacenews_end_to_end to None, run_after=None
+[2026-02-19T08:35:05.845+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spacenews_dag.py took 0.043 seconds
+[2026-02-19T08:35:36.019+0000] {processor.py:161} INFO - Started process (PID=247) to work on /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:35:36.020+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spacenews_dag.py for tasks to queue
+[2026-02-19T08:35:36.022+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:35:36.021+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:35:36.031+0000] {processor.py:840} INFO - DAG(s) 'spacenews_end_to_end' retrieved from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:35:36.045+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:35:36.045+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-02-19T08:35:36.051+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:35:36.051+0000] {dag.py:3947} INFO - Setting next_dagrun for spacenews_end_to_end to None, run_after=None
+[2026-02-19T08:35:36.060+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spacenews_dag.py took 0.046 seconds
+[2026-02-19T08:36:06.222+0000] {processor.py:161} INFO - Started process (PID=248) to work on /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:36:06.224+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spacenews_dag.py for tasks to queue
+[2026-02-19T08:36:06.225+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:36:06.225+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:36:06.233+0000] {processor.py:840} INFO - DAG(s) 'spacenews_end_to_end' retrieved from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:36:06.246+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:36:06.246+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-02-19T08:36:06.251+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:36:06.251+0000] {dag.py:3947} INFO - Setting next_dagrun for spacenews_end_to_end to None, run_after=None
+[2026-02-19T08:36:06.260+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spacenews_dag.py took 0.043 seconds
+[2026-02-19T08:36:36.433+0000] {processor.py:161} INFO - Started process (PID=249) to work on /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:36:36.434+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spacenews_dag.py for tasks to queue
+[2026-02-19T08:36:36.436+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:36:36.435+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:36:36.441+0000] {processor.py:840} INFO - DAG(s) 'spacenews_end_to_end' retrieved from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:36:36.451+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:36:36.451+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-02-19T08:36:36.457+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:36:36.457+0000] {dag.py:3947} INFO - Setting next_dagrun for spacenews_end_to_end to None, run_after=None
+[2026-02-19T08:36:36.464+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spacenews_dag.py took 0.034 seconds
+[2026-02-19T08:37:06.667+0000] {processor.py:161} INFO - Started process (PID=250) to work on /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:37:06.669+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spacenews_dag.py for tasks to queue
+[2026-02-19T08:37:06.670+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:37:06.670+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:37:06.678+0000] {processor.py:840} INFO - DAG(s) 'spacenews_end_to_end' retrieved from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:37:06.692+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:37:06.691+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-02-19T08:37:06.696+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:37:06.696+0000] {dag.py:3947} INFO - Setting next_dagrun for spacenews_end_to_end to None, run_after=None
+[2026-02-19T08:37:06.706+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spacenews_dag.py took 0.043 seconds
+[2026-02-19T08:37:36.883+0000] {processor.py:161} INFO - Started process (PID=251) to work on /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:37:36.884+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spacenews_dag.py for tasks to queue
+[2026-02-19T08:37:36.885+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:37:36.885+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:37:36.889+0000] {processor.py:840} INFO - DAG(s) 'spacenews_end_to_end' retrieved from /opt/airflow/dags/spacenews_dag.py
+[2026-02-19T08:37:36.897+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:37:36.897+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-02-19T08:37:36.901+0000] {logging_mixin.py:188} INFO - [2026-02-19T08:37:36.901+0000] {dag.py:3947} INFO - Setting next_dagrun for spacenews_end_to_end to None, run_after=None
+[2026-02-19T08:37:36.909+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spacenews_dag.py took 0.028 seconds
