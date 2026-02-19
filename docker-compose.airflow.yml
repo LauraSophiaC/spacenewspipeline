@@ -1,0 +1,48 @@
+services:
+  airflow-db:
+    image: postgres:16
+    container_name: airflow_postgres
+    environment:
+      POSTGRES_DB: airflow
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+    volumes:
+      - airflow_db_data:/var/lib/postgresql/data
+
+
+  airflow:
+    image: apache/airflow:2.9.3
+    container_name: spacenews_airflow
+    depends_on:
+      - airflow-db
+    environment:
+      PG_HOST: spacenews_postgres
+      PG_PORT: "5432"
+      PG_DB: spacenews
+      PG_USER: spacenews
+      PG_PASS: spacenews123
+
+      S3_ENDPOINT: http://minio:9000
+      S3_BUCKET: datalake
+      AWS_ACCESS_KEY_ID: minioadmin
+      AWS_SECRET_ACCESS_KEY: minioadmin123
+      AWS_DEFAULT_REGION: us-east-1
+
+
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - ./app:/opt/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8080:8080"
+    command: >
+      bash -lc "
+      pip install -q boto3 pandas pyarrow psycopg2-binary requests &&
+      airflow standalone
+      "
+
+
+volumes:
+  airflow_db_data:

@@ -1,0 +1,153 @@
+[2026-02-19T06:54:56.953+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-19T06:54:56.961+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spacenews_end_to_end.extract_articles_blogs_reports manual__2026-02-19T06:49:50.484818+00:00 [queued]>
+[2026-02-19T06:54:56.962+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spacenews_end_to_end.extract_articles_blogs_reports manual__2026-02-19T06:49:50.484818+00:00 [queued]>
+[2026-02-19T06:54:56.962+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 3
+[2026-02-19T06:54:56.966+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): extract_articles_blogs_reports> on 2026-02-19 06:49:50.484818+00:00
+[2026-02-19T06:54:56.967+0000] {standard_task_runner.py:64} INFO - Started process 98 to run task
+[2026-02-19T06:54:56.969+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'spacenews_end_to_end', 'extract_articles_blogs_reports', 'manual__2026-02-19T06:49:50.484818+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/spacenews_dag.py', '--cfg-path', '/tmp/tmp94w4y4v1']
+[2026-02-19T06:54:56.969+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask extract_articles_blogs_reports
+[2026-02-19T06:54:56.980+0000] {task_command.py:426} INFO - Running <TaskInstance: spacenews_end_to_end.extract_articles_blogs_reports manual__2026-02-19T06:49:50.484818+00:00 [running]> on host d83c35666308
+[2026-02-19T06:54:56.997+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='spacenews_end_to_end' AIRFLOW_CTX_TASK_ID='extract_articles_blogs_reports' AIRFLOW_CTX_EXECUTION_DATE='2026-02-19T06:49:50.484818+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-19T06:49:50.484818+00:00'
+[2026-02-19T06:54:56.998+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-19T06:54:57.002+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-19T06:54:57.003+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/app && PYTHONPATH=/opt/app/src RUN_DATE=2026-02-19 python3 -m spacenews.extract.run_extract']
+[2026-02-19T06:54:57.005+0000] {subprocess.py:86} INFO - Output:
+[2026-02-19T06:54:58.124+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T06:54:58.124811Z", "level": "INFO", "msg": "page_fetched", "endpoint": "articles", "page": 1, "count": 100, "has_next": true}
+[2026-02-19T06:54:59.087+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T06:54:59.087636Z", "level": "INFO", "msg": "progress", "endpoint": "articles", "fetched": 200, "new": 0, "updated": 200, "skipped": 0}
+[2026-02-19T06:54:59.087+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T06:54:59.087676Z", "level": "INFO", "msg": "page_fetched", "endpoint": "articles", "page": 2, "count": 100, "has_next": true}
+[2026-02-19T06:55:01.039+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T06:55:01.038966Z", "level": "INFO", "msg": "dev_limit_reached", "endpoint": "articles", "max_items": 300}
+[2026-02-19T06:55:08.064+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-02-19T06:55:08.064+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 203, in _new_conn
+[2026-02-19T06:55:08.065+0000] {subprocess.py:93} INFO -     sock = connection.create_connection(
+[2026-02-19T06:55:08.065+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.066+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+[2026-02-19T06:55:08.066+0000] {subprocess.py:93} INFO -     raise err
+[2026-02-19T06:55:08.067+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+[2026-02-19T06:55:08.067+0000] {subprocess.py:93} INFO -     sock.connect(sa)
+[2026-02-19T06:55:08.068+0000] {subprocess.py:93} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2026-02-19T06:55:08.068+0000] {subprocess.py:93} INFO - 
+[2026-02-19T06:55:08.069+0000] {subprocess.py:93} INFO - The above exception was the direct cause of the following exception:
+[2026-02-19T06:55:08.071+0000] {subprocess.py:93} INFO - 
+[2026-02-19T06:55:08.071+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-02-19T06:55:08.071+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 464, in send
+[2026-02-19T06:55:08.072+0000] {subprocess.py:93} INFO -     urllib_response = conn.urlopen(
+[2026-02-19T06:55:08.072+0000] {subprocess.py:93} INFO -                       ^^^^^^^^^^^^^
+[2026-02-19T06:55:08.072+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+[2026-02-19T06:55:08.073+0000] {subprocess.py:93} INFO -     retries = retries.increment(
+[2026-02-19T06:55:08.073+0000] {subprocess.py:93} INFO -               ^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.073+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 445, in increment
+[2026-02-19T06:55:08.073+0000] {subprocess.py:93} INFO -     raise reraise(type(error), error, _stacktrace)
+[2026-02-19T06:55:08.073+0000] {subprocess.py:93} INFO -           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.073+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+[2026-02-19T06:55:08.074+0000] {subprocess.py:93} INFO -     raise value
+[2026-02-19T06:55:08.074+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+[2026-02-19T06:55:08.074+0000] {subprocess.py:93} INFO -     response = self._make_request(
+[2026-02-19T06:55:08.074+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.074+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 497, in _make_request
+[2026-02-19T06:55:08.074+0000] {subprocess.py:93} INFO -     conn.request(
+[2026-02-19T06:55:08.075+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/awsrequest.py", line 96, in request
+[2026-02-19T06:55:08.075+0000] {subprocess.py:93} INFO -     rval = super().request(method, url, body, headers, *args, **kwargs)
+[2026-02-19T06:55:08.075+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.075+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 395, in request
+[2026-02-19T06:55:08.075+0000] {subprocess.py:93} INFO -     self.endheaders()
+[2026-02-19T06:55:08.075+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+[2026-02-19T06:55:08.075+0000] {subprocess.py:93} INFO -     self._send_output(message_body, encode_chunked=encode_chunked)
+[2026-02-19T06:55:08.076+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/awsrequest.py", line 123, in _send_output
+[2026-02-19T06:55:08.076+0000] {subprocess.py:93} INFO -     self.send(msg)
+[2026-02-19T06:55:08.076+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/awsrequest.py", line 223, in send
+[2026-02-19T06:55:08.076+0000] {subprocess.py:93} INFO -     return super().send(str)
+[2026-02-19T06:55:08.076+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.076+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+[2026-02-19T06:55:08.076+0000] {subprocess.py:93} INFO -     self.connect()
+[2026-02-19T06:55:08.076+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 243, in connect
+[2026-02-19T06:55:08.077+0000] {subprocess.py:93} INFO -     self.sock = self._new_conn()
+[2026-02-19T06:55:08.077+0000] {subprocess.py:93} INFO -                 ^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.077+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 218, in _new_conn
+[2026-02-19T06:55:08.077+0000] {subprocess.py:93} INFO -     raise NewConnectionError(
+[2026-02-19T06:55:08.077+0000] {subprocess.py:93} INFO - urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0xffff7d6094f0>: Failed to establish a new connection: [Errno 111] Connection refused
+[2026-02-19T06:55:08.077+0000] {subprocess.py:93} INFO - 
+[2026-02-19T06:55:08.077+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2026-02-19T06:55:08.077+0000] {subprocess.py:93} INFO - 
+[2026-02-19T06:55:08.078+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-02-19T06:55:08.078+0000] {subprocess.py:93} INFO -   File "<frozen runpy>", line 198, in _run_module_as_main
+[2026-02-19T06:55:08.078+0000] {subprocess.py:93} INFO -   File "<frozen runpy>", line 88, in _run_code
+[2026-02-19T06:55:08.078+0000] {subprocess.py:93} INFO -   File "/opt/app/src/spacenews/extract/run_extract.py", line 59, in <module>
+[2026-02-19T06:55:08.078+0000] {subprocess.py:93} INFO -     main()
+[2026-02-19T06:55:08.078+0000] {subprocess.py:93} INFO -   File "/opt/app/src/spacenews/extract/run_extract.py", line 52, in main
+[2026-02-19T06:55:08.078+0000] {subprocess.py:93} INFO -     write_bronze(endpoint=ep, records=bronze_records, run_date=run_date)
+[2026-02-19T06:55:08.079+0000] {subprocess.py:93} INFO -   File "/opt/app/src/spacenews/storage/bronze_writer.py", line 25, in write_bronze
+[2026-02-19T06:55:08.079+0000] {subprocess.py:93} INFO -     s3.put_object(Bucket=S3_BUCKET, Key=key, Body=body.encode("utf-8"))
+[2026-02-19T06:55:08.079+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 565, in _api_call
+[2026-02-19T06:55:08.079+0000] {subprocess.py:93} INFO -     return self._make_api_call(operation_name, kwargs)
+[2026-02-19T06:55:08.079+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.079+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 1001, in _make_api_call
+[2026-02-19T06:55:08.079+0000] {subprocess.py:93} INFO -     http, parsed_response = self._make_request(
+[2026-02-19T06:55:08.080+0000] {subprocess.py:93} INFO -                             ^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.080+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 1027, in _make_request
+[2026-02-19T06:55:08.080+0000] {subprocess.py:93} INFO -     return self._endpoint.make_request(operation_model, request_dict)
+[2026-02-19T06:55:08.080+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.080+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 119, in make_request
+[2026-02-19T06:55:08.080+0000] {subprocess.py:93} INFO -     return self._send_request(request_dict, operation_model)
+[2026-02-19T06:55:08.080+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.080+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 202, in _send_request
+[2026-02-19T06:55:08.080+0000] {subprocess.py:93} INFO -     while self._needs_retry(
+[2026-02-19T06:55:08.081+0000] {subprocess.py:93} INFO -           ^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.081+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 354, in _needs_retry
+[2026-02-19T06:55:08.081+0000] {subprocess.py:93} INFO -     responses = self._event_emitter.emit(
+[2026-02-19T06:55:08.081+0000] {subprocess.py:93} INFO -                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.081+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/hooks.py", line 412, in emit
+[2026-02-19T06:55:08.081+0000] {subprocess.py:93} INFO -     return self._emitter.emit(aliased_event_name, **kwargs)
+[2026-02-19T06:55:08.081+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.082+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/hooks.py", line 256, in emit
+[2026-02-19T06:55:08.082+0000] {subprocess.py:93} INFO -     return self._emit(event_name, kwargs)
+[2026-02-19T06:55:08.082+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.082+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/hooks.py", line 239, in _emit
+[2026-02-19T06:55:08.082+0000] {subprocess.py:93} INFO -     response = handler(**kwargs)
+[2026-02-19T06:55:08.082+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.082+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 207, in __call__
+[2026-02-19T06:55:08.082+0000] {subprocess.py:93} INFO -     if self._checker(**checker_kwargs):
+[2026-02-19T06:55:08.083+0000] {subprocess.py:93} INFO -        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.083+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 284, in __call__
+[2026-02-19T06:55:08.083+0000] {subprocess.py:93} INFO -     should_retry = self._should_retry(
+[2026-02-19T06:55:08.083+0000] {subprocess.py:93} INFO -                    ^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.083+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 320, in _should_retry
+[2026-02-19T06:55:08.083+0000] {subprocess.py:93} INFO -     return self._checker(attempt_number, response, caught_exception)
+[2026-02-19T06:55:08.083+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.083+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+[2026-02-19T06:55:08.084+0000] {subprocess.py:93} INFO -     checker_response = checker(
+[2026-02-19T06:55:08.084+0000] {subprocess.py:93} INFO -                        ^^^^^^^^
+[2026-02-19T06:55:08.084+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+[2026-02-19T06:55:08.084+0000] {subprocess.py:93} INFO -     return self._check_caught_exception(
+[2026-02-19T06:55:08.084+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.084+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+[2026-02-19T06:55:08.084+0000] {subprocess.py:93} INFO -     raise caught_exception
+[2026-02-19T06:55:08.084+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 281, in _do_get_response
+[2026-02-19T06:55:08.085+0000] {subprocess.py:93} INFO -     http_response = self._send(request)
+[2026-02-19T06:55:08.085+0000] {subprocess.py:93} INFO -                     ^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.085+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 377, in _send
+[2026-02-19T06:55:08.085+0000] {subprocess.py:93} INFO -     return self.http_session.send(request)
+[2026-02-19T06:55:08.085+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:55:08.085+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 493, in send
+[2026-02-19T06:55:08.085+0000] {subprocess.py:93} INFO -     raise EndpointConnectionError(endpoint_url=request.url, error=e)
+[2026-02-19T06:55:08.085+0000] {subprocess.py:93} INFO - botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:9000/datalake/bronze/articles/ingestion_date%3D2026-02-19/data.jsonl"
+[2026-02-19T06:55:08.133+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-02-19T06:55:08.134+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-19T06:55:08.137+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-02-19T06:55:08.138+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=spacenews_end_to_end, task_id=extract_articles_blogs_reports, run_id=manual__2026-02-19T06:49:50.484818+00:00, execution_date=20260219T064950, start_date=20260219T065456, end_date=20260219T065508
+[2026-02-19T06:55:08.143+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 4 for task extract_articles_blogs_reports (Bash command failed. The command returned a non-zero exit code 1.; 98)
+[2026-02-19T06:55:08.177+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-02-19T06:55:08.184+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-19T06:55:08.184+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

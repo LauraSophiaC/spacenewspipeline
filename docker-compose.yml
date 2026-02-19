@@ -1,0 +1,53 @@
+version: "3.9"
+
+services:
+  dw:
+    image: postgres:16
+    container_name: spacenews_postgres
+    environment:
+      POSTGRES_DB: spacenews
+      POSTGRES_USER: spacenews
+      POSTGRES_PASSWORD: spacenews123
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+  minio:
+    image: minio/minio
+    container_name: spacenews_minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data 
+  spark:
+    build:
+      context: .
+      dockerfile: spark/Dockerfile
+    container_name: spacenews_spark
+    depends_on:
+      - minio
+    environment:
+      - S3_ENDPOINT=http://minio:9000
+      - S3_ACCESS_KEY=minioadmin
+      - S3_SECRET_KEY=minioadmin123
+      - S3_BUCKET=datalake
+      - RUN_DATE=2026-02-19
+    volumes:
+      - ./app:/opt/app
+    command: ["bash", "-lc", "tail -f /dev/null"]
+
+
+
+
+volumes:
+  postgres_data:
+  minio_data:
+
+
+    

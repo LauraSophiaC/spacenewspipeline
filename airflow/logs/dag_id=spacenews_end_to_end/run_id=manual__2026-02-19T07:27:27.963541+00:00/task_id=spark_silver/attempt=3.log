@@ -1,0 +1,50 @@
+[2026-02-19T07:36:07.780+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-19T07:36:07.788+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spacenews_end_to_end.spark_silver manual__2026-02-19T07:27:27.963541+00:00 [queued]>
+[2026-02-19T07:36:07.789+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spacenews_end_to_end.spark_silver manual__2026-02-19T07:27:27.963541+00:00 [queued]>
+[2026-02-19T07:36:07.790+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 5
+[2026-02-19T07:36:07.793+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): spark_silver> on 2026-02-19 07:27:27.963541+00:00
+[2026-02-19T07:36:07.794+0000] {standard_task_runner.py:64} INFO - Started process 186 to run task
+[2026-02-19T07:36:07.795+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'spacenews_end_to_end', 'spark_silver', 'manual__2026-02-19T07:27:27.963541+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/spacenews_dag.py', '--cfg-path', '/tmp/tmp7c8j6i20']
+[2026-02-19T07:36:07.796+0000] {standard_task_runner.py:91} INFO - Job 7: Subtask spark_silver
+[2026-02-19T07:36:07.807+0000] {task_command.py:426} INFO - Running <TaskInstance: spacenews_end_to_end.spark_silver manual__2026-02-19T07:27:27.963541+00:00 [running]> on host fec59818307d
+[2026-02-19T07:36:07.824+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='spacenews_end_to_end' AIRFLOW_CTX_TASK_ID='spark_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-02-19T07:27:27.963541+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-19T07:27:27.963541+00:00'
+[2026-02-19T07:36:07.824+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-19T07:36:07.828+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-19T07:36:07.829+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'docker exec -i spacenews_spark bash -lc "cd /opt/app && PYTHONPATH=/opt/app/src RUN_DATE=2026-02-19 python3 -m spacenews.spark.01_silver_clean"']
+[2026-02-19T07:36:07.831+0000] {subprocess.py:86} INFO - Output:
+[2026-02-19T07:36:08.521+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-02-19T07:36:08.522+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-02-19T07:36:08.587+0000] {subprocess.py:93} INFO - 26/02/19 07:36:08 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-02-19T07:36:09.026+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-02-19T07:36:09.027+0000] {subprocess.py:93} INFO -   File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+[2026-02-19T07:36:09.027+0000] {subprocess.py:93} INFO -     return _run_code(code, main_globals, None,
+[2026-02-19T07:36:09.027+0000] {subprocess.py:93} INFO -   File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+[2026-02-19T07:36:09.027+0000] {subprocess.py:93} INFO -     exec(code, run_globals)
+[2026-02-19T07:36:09.027+0000] {subprocess.py:93} INFO -   File "/opt/app/src/spacenews/spark/01_silver_clean.py", line 104, in <module>
+[2026-02-19T07:36:09.027+0000] {subprocess.py:93} INFO -     main()
+[2026-02-19T07:36:09.027+0000] {subprocess.py:93} INFO -   File "/opt/app/src/spacenews/spark/01_silver_clean.py", line 100, in main
+[2026-02-19T07:36:09.027+0000] {subprocess.py:93} INFO -     process_endpoint(spark, ep, run_date)
+[2026-02-19T07:36:09.028+0000] {subprocess.py:93} INFO -   File "/opt/app/src/spacenews/spark/01_silver_clean.py", line 61, in process_endpoint
+[2026-02-19T07:36:09.028+0000] {subprocess.py:93} INFO -     ok = download_bronze(endpoint, run_date, bronze_file)
+[2026-02-19T07:36:09.028+0000] {subprocess.py:93} INFO - UnboundLocalError: local variable 'bronze_file' referenced before assignment
+[2026-02-19T07:36:09.473+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-02-19T07:36:09.474+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-19T07:36:09.479+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-02-19T07:36:09.481+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=spacenews_end_to_end, task_id=spark_silver, run_id=manual__2026-02-19T07:27:27.963541+00:00, execution_date=20260219T072727, start_date=20260219T073607, end_date=20260219T073609
+[2026-02-19T07:36:09.489+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 7 for task spark_silver (Bash command failed. The command returned a non-zero exit code 1.; 186)
+[2026-02-19T07:36:09.500+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-02-19T07:36:09.511+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-19T07:36:09.511+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

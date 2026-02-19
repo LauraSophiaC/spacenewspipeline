@@ -1,0 +1,21 @@
+[2026-02-19T08:01:10.306+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-19T08:01:10.314+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spacenews_end_to_end.extract_info manual__2026-02-19T08:00:53.631505+00:00 [queued]>
+[2026-02-19T08:01:10.315+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spacenews_end_to_end.extract_info manual__2026-02-19T08:00:53.631505+00:00 [queued]>
+[2026-02-19T08:01:10.315+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-19T08:01:10.319+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): extract_info> on 2026-02-19 08:00:53.631505+00:00
+[2026-02-19T08:01:10.321+0000] {standard_task_runner.py:64} INFO - Started process 123 to run task
+[2026-02-19T08:01:10.322+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'spacenews_end_to_end', 'extract_info', 'manual__2026-02-19T08:00:53.631505+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/spacenews_dag.py', '--cfg-path', '/tmp/tmpi0h4614s']
+[2026-02-19T08:01:10.323+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask extract_info
+[2026-02-19T08:01:10.336+0000] {task_command.py:426} INFO - Running <TaskInstance: spacenews_end_to_end.extract_info manual__2026-02-19T08:00:53.631505+00:00 [running]> on host 1d0774e161f9
+[2026-02-19T08:01:10.356+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='spacenews_end_to_end' AIRFLOW_CTX_TASK_ID='extract_info' AIRFLOW_CTX_EXECUTION_DATE='2026-02-19T08:00:53.631505+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-19T08:00:53.631505+00:00'
+[2026-02-19T08:01:10.356+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-19T08:01:10.360+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-19T08:01:10.361+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/app && PYTHONPATH=/opt/app/src RUN_DATE=2026-02-19 python3 -m spacenews.extract.run_extract_info']
+[2026-02-19T08:01:10.363+0000] {subprocess.py:86} INFO - Output:
+[2026-02-19T08:01:11.362+0000] {subprocess.py:93} INFO - [INFO] wrote s3://datalake/bronze/info/ingestion_date=2026-02-19/info.json
+[2026-02-19T08:01:11.393+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-02-19T08:01:11.393+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-19T08:01:11.400+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=spacenews_end_to_end, task_id=extract_info, run_id=manual__2026-02-19T08:00:53.631505+00:00, execution_date=20260219T080053, start_date=20260219T080110, end_date=20260219T080111
+[2026-02-19T08:01:11.432+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-02-19T08:01:11.439+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-19T08:01:11.444+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

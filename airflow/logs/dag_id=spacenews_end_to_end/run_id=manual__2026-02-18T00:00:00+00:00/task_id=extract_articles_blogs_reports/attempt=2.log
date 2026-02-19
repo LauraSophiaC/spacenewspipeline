@@ -1,0 +1,57 @@
+[2026-02-19T06:21:57.591+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-19T06:21:57.601+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spacenews_end_to_end.extract_articles_blogs_reports manual__2026-02-18T00:00:00+00:00 [queued]>
+[2026-02-19T06:21:57.604+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spacenews_end_to_end.extract_articles_blogs_reports manual__2026-02-18T00:00:00+00:00 [queued]>
+[2026-02-19T06:21:57.604+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 3
+[2026-02-19T06:21:57.607+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): extract_articles_blogs_reports> on 2026-02-18 00:00:00+00:00
+[2026-02-19T06:21:57.609+0000] {standard_task_runner.py:64} INFO - Started process 126 to run task
+[2026-02-19T06:21:57.610+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'spacenews_end_to_end', 'extract_articles_blogs_reports', 'manual__2026-02-18T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/spacenews_dag.py', '--cfg-path', '/tmp/tmpaqri529d']
+[2026-02-19T06:21:57.611+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask extract_articles_blogs_reports
+[2026-02-19T06:21:57.630+0000] {task_command.py:426} INFO - Running <TaskInstance: spacenews_end_to_end.extract_articles_blogs_reports manual__2026-02-18T00:00:00+00:00 [running]> on host 141303d5dcec
+[2026-02-19T06:21:57.660+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='spacenews_end_to_end' AIRFLOW_CTX_TASK_ID='extract_articles_blogs_reports' AIRFLOW_CTX_EXECUTION_DATE='2026-02-18T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-18T00:00:00+00:00'
+[2026-02-19T06:21:57.660+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-19T06:21:57.666+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-19T06:21:57.666+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/app && PYTHONPATH=/opt/app/src RUN_DATE=2026-02-18 python3 -m spacenews.extract.run_extract']
+[2026-02-19T06:21:57.668+0000] {subprocess.py:86} INFO - Output:
+[2026-02-19T06:21:58.626+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-02-19T06:21:58.627+0000] {subprocess.py:93} INFO -   File "<frozen runpy>", line 198, in _run_module_as_main
+[2026-02-19T06:21:58.627+0000] {subprocess.py:93} INFO -   File "<frozen runpy>", line 88, in _run_code
+[2026-02-19T06:21:58.628+0000] {subprocess.py:93} INFO -   File "/opt/app/src/spacenews/extract/run_extract.py", line 59, in <module>
+[2026-02-19T06:21:58.629+0000] {subprocess.py:93} INFO -     main()
+[2026-02-19T06:21:58.631+0000] {subprocess.py:93} INFO -   File "/opt/app/src/spacenews/extract/run_extract.py", line 32, in main
+[2026-02-19T06:21:58.631+0000] {subprocess.py:93} INFO -     decision = upsert_state(ep, item_id, updated_at)
+[2026-02-19T06:21:58.631+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:21:58.631+0000] {subprocess.py:93} INFO -   File "/opt/app/src/spacenews/storage/state_store.py", line 18, in upsert_state
+[2026-02-19T06:21:58.631+0000] {subprocess.py:93} INFO -     with conn() as c, c.cursor() as cur:
+[2026-02-19T06:21:58.631+0000] {subprocess.py:93} INFO -          ^^^^^^
+[2026-02-19T06:21:58.632+0000] {subprocess.py:93} INFO -   File "/opt/app/src/spacenews/storage/state_store.py", line 6, in conn
+[2026-02-19T06:21:58.632+0000] {subprocess.py:93} INFO -     return psycopg2.connect(
+[2026-02-19T06:21:58.632+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^
+[2026-02-19T06:21:58.632+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+[2026-02-19T06:21:58.632+0000] {subprocess.py:93} INFO -     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+[2026-02-19T06:21:58.632+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-19T06:21:58.632+0000] {subprocess.py:93} INFO - psycopg2.OperationalError: connection to server at "localhost" (::1), port 5433 failed: Connection refused
+[2026-02-19T06:21:58.632+0000] {subprocess.py:93} INFO - 	Is the server running on that host and accepting TCP/IP connections?
+[2026-02-19T06:21:58.632+0000] {subprocess.py:93} INFO - connection to server at "localhost" (127.0.0.1), port 5433 failed: Connection refused
+[2026-02-19T06:21:58.633+0000] {subprocess.py:93} INFO - 	Is the server running on that host and accepting TCP/IP connections?
+[2026-02-19T06:21:58.634+0000] {subprocess.py:93} INFO - 
+[2026-02-19T06:21:58.651+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-02-19T06:21:58.652+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-19T06:21:58.657+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-02-19T06:21:58.658+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=spacenews_end_to_end, task_id=extract_articles_blogs_reports, run_id=manual__2026-02-18T00:00:00+00:00, execution_date=20260218T000000, start_date=20260219T062157, end_date=20260219T062158
+[2026-02-19T06:21:58.662+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 4 for task extract_articles_blogs_reports (Bash command failed. The command returned a non-zero exit code 1.; 126)
+[2026-02-19T06:21:58.672+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-02-19T06:21:58.682+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-19T06:21:58.682+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

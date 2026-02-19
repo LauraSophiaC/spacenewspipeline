@@ -1,0 +1,36 @@
+[2026-02-19T08:00:54.996+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-19T08:00:55.003+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spacenews_end_to_end.extract_articles_blogs_reports manual__2026-02-19T08:00:53.631505+00:00 [queued]>
+[2026-02-19T08:00:55.005+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spacenews_end_to_end.extract_articles_blogs_reports manual__2026-02-19T08:00:53.631505+00:00 [queued]>
+[2026-02-19T08:00:55.005+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-19T08:00:55.009+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): extract_articles_blogs_reports> on 2026-02-19 08:00:53.631505+00:00
+[2026-02-19T08:00:55.010+0000] {standard_task_runner.py:64} INFO - Started process 117 to run task
+[2026-02-19T08:00:55.011+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'spacenews_end_to_end', 'extract_articles_blogs_reports', 'manual__2026-02-19T08:00:53.631505+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/spacenews_dag.py', '--cfg-path', '/tmp/tmp5ww808_3']
+[2026-02-19T08:00:55.011+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask extract_articles_blogs_reports
+[2026-02-19T08:00:55.024+0000] {task_command.py:426} INFO - Running <TaskInstance: spacenews_end_to_end.extract_articles_blogs_reports manual__2026-02-19T08:00:53.631505+00:00 [running]> on host 1d0774e161f9
+[2026-02-19T08:00:55.040+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='spacenews_end_to_end' AIRFLOW_CTX_TASK_ID='extract_articles_blogs_reports' AIRFLOW_CTX_EXECUTION_DATE='2026-02-19T08:00:53.631505+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-19T08:00:53.631505+00:00'
+[2026-02-19T08:00:55.041+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-19T08:00:55.052+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-19T08:00:55.052+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/app && PYTHONPATH=/opt/app/src RUN_DATE=2026-02-19 python3 -m spacenews.extract.run_extract']
+[2026-02-19T08:00:55.054+0000] {subprocess.py:86} INFO - Output:
+[2026-02-19T08:00:58.003+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:00:58.003696Z", "level": "INFO", "msg": "page_fetched", "endpoint": "articles", "page": 1, "count": 100, "has_next": true}
+[2026-02-19T08:01:00.782+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:00.781806Z", "level": "INFO", "msg": "progress", "endpoint": "articles", "fetched": 200, "new": 0, "updated": 0, "skipped": 200}
+[2026-02-19T08:01:00.782+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:00.781844Z", "level": "INFO", "msg": "page_fetched", "endpoint": "articles", "page": 2, "count": 100, "has_next": true}
+[2026-02-19T08:01:02.577+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:02.576662Z", "level": "INFO", "msg": "dev_limit_reached", "endpoint": "articles", "max_items": 300}
+[2026-02-19T08:01:02.577+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:02.576935Z", "level": "INFO", "msg": "endpoint_done", "run_id": "d92ee47e-1508-4507-afd5-fa275301b432", "endpoint": "articles", "fetched": 300, "new": 0, "updated": 0, "skipped": 300, "bronze_written": 0}
+[2026-02-19T08:01:04.158+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:04.158150Z", "level": "INFO", "msg": "page_fetched", "endpoint": "blogs", "page": 1, "count": 100, "has_next": true}
+[2026-02-19T08:01:04.970+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:04.969879Z", "level": "INFO", "msg": "progress", "endpoint": "blogs", "fetched": 200, "new": 0, "updated": 0, "skipped": 200}
+[2026-02-19T08:01:04.970+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:04.969916Z", "level": "INFO", "msg": "page_fetched", "endpoint": "blogs", "page": 2, "count": 100, "has_next": true}
+[2026-02-19T08:01:06.188+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:06.188370Z", "level": "INFO", "msg": "dev_limit_reached", "endpoint": "blogs", "max_items": 300}
+[2026-02-19T08:01:06.189+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:06.188645Z", "level": "INFO", "msg": "endpoint_done", "run_id": "d92ee47e-1508-4507-afd5-fa275301b432", "endpoint": "blogs", "fetched": 300, "new": 0, "updated": 0, "skipped": 300, "bronze_written": 0}
+[2026-02-19T08:01:07.419+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:07.418524Z", "level": "INFO", "msg": "page_fetched", "endpoint": "reports", "page": 1, "count": 100, "has_next": true}
+[2026-02-19T08:01:08.311+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:08.311315Z", "level": "INFO", "msg": "progress", "endpoint": "reports", "fetched": 200, "new": 0, "updated": 0, "skipped": 200}
+[2026-02-19T08:01:08.312+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:08.311355Z", "level": "INFO", "msg": "page_fetched", "endpoint": "reports", "page": 2, "count": 100, "has_next": true}
+[2026-02-19T08:01:09.017+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:09.016953Z", "level": "INFO", "msg": "dev_limit_reached", "endpoint": "reports", "max_items": 300}
+[2026-02-19T08:01:09.019+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:09.017187Z", "level": "INFO", "msg": "endpoint_done", "run_id": "d92ee47e-1508-4507-afd5-fa275301b432", "endpoint": "reports", "fetched": 300, "new": 0, "updated": 0, "skipped": 300, "bronze_written": 0}
+[2026-02-19T08:01:09.019+0000] {subprocess.py:93} INFO - {"ts": "2026-02-19T08:01:09.017200Z", "level": "INFO", "msg": "extract_done", "run_id": "d92ee47e-1508-4507-afd5-fa275301b432", "run_date": "2026-02-19"}
+[2026-02-19T08:01:09.045+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-02-19T08:01:09.045+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-19T08:01:09.053+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=spacenews_end_to_end, task_id=extract_articles_blogs_reports, run_id=manual__2026-02-19T08:00:53.631505+00:00, execution_date=20260219T080053, start_date=20260219T080055, end_date=20260219T080109
+[2026-02-19T08:01:09.075+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-02-19T08:01:09.083+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-19T08:01:09.085+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
